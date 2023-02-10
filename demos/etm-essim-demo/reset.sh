@@ -16,5 +16,5 @@ echo "Using $(eval $GIT_COMMAND version)"
 export $(grep -v '^#' .env.deploy | xargs)
 cd $INFRA_PATH
 
-find . -type d -depth 1 -exec $GIT_COMMAND $GIT_PARAMS fetch origin \;
-find . -type d -depth 1 -exec $GIT_COMMAND $GIT_PARAMS reset --hard origin/main \;
+find . -maxdepth 1 -type d -exec $GIT_COMMAND $GIT_PARAMS fetch origin \;
+find . -maxdepth 1 -type d -exec $GIT_COMMAND $GIT_PARAMS reset --hard origin/main \;
