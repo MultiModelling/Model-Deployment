@@ -15,4 +15,4 @@ echo "Using $(eval $GIT_COMMAND version)"
 # Update Modules
 export $(grep -v '^#' .env.deploy | xargs)
 cd $INFRA_PATH
-find . -type d -depth 1 -exec $GIT_COMMAND $GIT_PARAMS $GIT_DIRECTIVE \;
+find . -maxdepth 1 -type d -exec $GIT_COMMAND $GIT_PARAMS $GIT_DIRECTIVE \;
